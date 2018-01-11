@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btn").click(function (e) {
+
+                if ($('#name').val() == "" || $('#email').val() == ""
+                    || $('#dateFrom').val() == "" || $('#dateTill').val() == ""
+                    || ($('#dateTill').val() < $('#dateFrom').val())) {
+                    alert("incorrect data at form ... ");
+                    return false;
+                }
+
+                var jsonData = {};
+                var formData = $("#myform").serializeArray();
+                $.each(formData, function () {
+                    if (jsonData[this.name]) {
+                        if (!jsonData[this.name].push) {
+                            jsonData[this.name] = [jsonData[this.name]];
+                        }
+                        jsonData[this.name].push(this.value || '');
+                    } else {
+                        jsonData[this.name] = this.value || '';
+                    }
+                });
+                console.log(jsonData);
+                localStorage.setItem('gameStorage', JSON.stringify(jsonData));
+                e.preventDefault();
+            });
+        });
+    </script>
+
+
+
+
+
+</head>
+<body>
+
+    <div class="header"></div>
+
+    <div class="container">
+        <h1 class="text-left lead">Кімната типу1</h1>
+        <hr />
+
+        <h2 class="text-center">Description</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Phasellus dui nibh, tempus vel est luctus, laoreet pulvinar libero.
+            Nulla lorem dui, ornare in porta et, lobortis nec lectus. Integer ultricies convallis metus
+            non facilisis. Integer tincidunt luctus lectus, sed commodo lorem eleifend et. Donec molestie
+            gravida lorem in bibendum. Etiam iaculis mauris eget mi vulputate condimentum. Fusce ante felis,
+            interdum vel dolor id, interdum suscipit risus. Ut commodo condimentum quam vel vestibulum.
+            Donec laoreet dolor in libero fermentum, et pretium risus sodales. Ut ut nulla sem.
+        </p>
+
+
+        <div class="row">
+            <div class="col-xs-4 ">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/500x500">
+                </div>
+            </div>
+
+            <div class="col-xs-4 ">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/500x500">
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        <form id="myform" type="post">
+            <div class="form-group">
+                <label for="name">Імя:</label>
+                <input type="text" class="form-control" id="name" placeholder="введіть імя" name="fname">
+            </div>
+            <div class="form-group">
+                <label for="email">Електронна адреса</label>
+                <input type="email" class="form-control" id="email" placeholder="введіть електронну адресу" name="femail">
+            </div>
+            <div class="form-group">
+                <label for="">З:</label>
+                <input id="dateFrom" name="dateFrom" class="form-control" type="date">
+            </div>
+
+            <div class="form-group">
+                <label for="">До:</label>
+                <input id="dateTill" name="dateTill" class="form-control" type="date">
+            </div>
+            <button type="submit" id="btn" name="btn" class="btn btn-default">Забронювати</button>
+        </form>
+
+
+
+    </div>
+    <br /><br /><br />
+    <div class="footer"></div>
+
+</body>
+</html>

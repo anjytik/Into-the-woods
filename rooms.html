@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+ 
+    <script src="js/pagination.js" ></script>
+</head>
+<body>
+
+    <div class="header"></div>
+
+    <div class="container">
+        <h1 class="text-left lead">Доступні номера </h1>
+        <hr />
+        <div id="content">
+            <div class="z">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="images/rooms/124287898.jpg" class="media-object">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Type1</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a href="bookRoom1.html">View appartment type 1</a>
+                    </div>
+
+                </div>
+                <hr>
+            </div>
+            <div class="z">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="images/rooms/124287898.jpg" class="media-object">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Type2</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a href="bookRoom2.html">View appartment type 2</a>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="z">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="images/rooms/124287898.jpg" class="media-object">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Type3</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a href="bookRoom3.html">View appartment type 3</a>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="z">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="images/rooms/124287898.jpg" class="media-object">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Type4</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a href="bookRoom4.html">View appartment type 4</a>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div id="pagingControls"></div>
+        <br /><br /><br />
+    </div>
+
+
+    <script type="text/javascript">
+        var pager = new Imtech.Pager();
+        $(document).ready(function () {
+            pager.paragraphsPerPage = 2;
+            pager.pagingContainer = $('#content');
+            pager.paragraphs = $('div.z', pager.pagingContainer);
+            pager.showPage(1);
+        });
+    </script>
+
+    <div class="footer"></div>
+
+</body>
+</html>
